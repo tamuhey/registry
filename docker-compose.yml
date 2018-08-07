@@ -19,7 +19,7 @@ registry:
     - ./data:/var/lib/registry
 
 front-end:
-  image: "konradkleine/docker-registry-frontend:2"
+  image: "konradkleine/docker-registry-frontend:v2"
   ports:
     - 9080:80
   links:

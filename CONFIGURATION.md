@@ -45,6 +45,35 @@ docker run --rm --entrypoint htpasswd registry:2 -Bbn fishman zxcvbn >> auth/ngi
 ~~~
 
 
+##  自己署名証明書の登録 macOS
+
+1. キーチェーンアクセスを起動して、以下を選択する
+　　-> キーチェーン:システム
+　　-> 分類:証明書
+
+2. auth/domain.crt ファイルを キーチェーンの証明書リストへ、ドラッグ＆ドロップ
+
+3. piravate.registry.local をクリック
+
+4. ポップアップしたウィンドの「信頼」を展開
+   そして、この証明書を利用する時: 「常に信頼」を選択
+
+5. Dockerを再起動
+
+6. レジストリへログイン
+
+~~~
+$ docker login -u=dockman -p=qwerty private.registry.local:5043
+WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+Login Succeeded
+~~~
+
+
+
+
+
+
+
 
 
 
