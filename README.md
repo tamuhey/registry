@@ -85,3 +85,7 @@ docker-compose down
 
 
 
+## 参考資料
+[1] docker docs, Authenticate proxy with nginx, https://docs.docker.com/registry/recipes/nginx/
+[2] https://github.com/kwk/docker-registry-frontend
+[3] https://hub.docker.com/_/registry/
