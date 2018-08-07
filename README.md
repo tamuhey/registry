@@ -41,6 +41,8 @@ docker-compose up -d
 ~~~
 
 
+## テスト
+
 レジストリへログイン
 
 ~~~
@@ -51,20 +53,28 @@ $ docker login -u=dockman -p=qwerty private.registry.local:5043
 コンテナのPush
 
 ~~~
-$ docker tag ubuntu:latest private.registry.local:5043/ubuntu:latest
-$ docker push private.registry.local:5043/ubuntu:latest
+$ docker pull ubuntu:18.04
+$ docker tag ubuntu:18.04 private.registry.local:5043/ubuntu:18.04
+$ docker push private.registry.local:5043/ubuntu:18.04
 ~~~
+
+
+ブラウザで、http://localhost:9080/ をアクセス
+ユーザーID dockman、パスワード qwerty でリポジトリが表示される。
+
 
 
 コンテナの実行
 
 ~~~
-$ docker run -it private.registry.local:5043/ubuntu:latest bash
-root@f2c28a25bf10:/# ps
-  PID TTY          TIME CMD
-    1 pts/0    00:00:00 bash
-    9 pts/0    00:00:00 ps
+$ docker run -it private.registry.local:5043/ubuntu:18.04 bash
+root@ff1eedb30e1c:/# cat /etc/issue
+Ubuntu 18.04.1 LTS \n \l
+
+root@ff1eedb30e1c:/# uname -a
+Linux ff1eedb30e1c 4.9.60-linuxkit-aufs #1 SMP Mon Nov 6 16:00:12 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
 ~~~
+
 
 
 ## レジストリの停止

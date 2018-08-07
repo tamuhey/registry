@@ -60,16 +60,15 @@ docker run --rm --entrypoint htpasswd registry:2 -Bbn fishman zxcvbn >> auth/ngi
 
 5. Dockerを再起動
 
-6. レジストリへログイン
+6. docker-compose up -d で、レジストリ、プロキシ、フロントエンドを起動
+
+7. レジストリへログイン
 
 ~~~
 $ docker login -u=dockman -p=qwerty private.registry.local:5043
 WARNING! Using --password via the CLI is insecure. Use --password-stdin.
 Login Succeeded
 ~~~
-
-
-
 
 
 
